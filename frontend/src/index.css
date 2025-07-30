@@ -1,15 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom CSS Variables for Theme Colors */
+/* Custom CSS Variables for Enhanced Theme Colors */
 :root {
   /* MH Raj Electricals Color Palette */
   --color-primary: 217 4 41; /* #D90429 */
   --color-secondary: 239 35 60; /* #EF233C */
-  --color-background: 237 242 244; /* #EDF2F4 */
-  --color-muted: 141 153 174; /* #8D99AE */
-  --color-dark: 43 45 66; /* #2B2D42 */
+  --color-background: 248 250 252; /* Lighter background */
+  --color-muted: 100 116 139; /* Slate-500 for better contrast */
+  --color-dark: 15 23 42; /* Slate-900 */
   
   /* Light Mode Colors */
   --background: var(--color-background);
@@ -22,7 +24,7 @@
   --primary-foreground: 255 255 255;
   --secondary: 248 249 250;
   --secondary-foreground: var(--color-dark);
-  --muted: 248 249 250;
+  --muted: 241 245 249;
   --muted-foreground: var(--color-muted);
   --accent: 248 249 250;
   --accent-foreground: var(--color-dark);
@@ -31,28 +33,28 @@
   --border: 226 232 240;
   --input: 226 232 240;
   --ring: var(--color-primary);
-  --radius: 0.75rem;
+  --radius: 1rem;
 }
 
 .dark {
-  /* Dark Mode Colors */
-  --background: 15 23 42; /* slate-900 */
-  --foreground: var(--color-background);
-  --card: 30 41 59; /* slate-800 */
-  --card-foreground: var(--color-background);
-  --popover: 30 41 59;
-  --popover-foreground: var(--color-background);
+  /* Enhanced Dark Mode Colors */
+  --background: 2 6 23; /* Very dark blue-black */
+  --foreground: 248 250 252;
+  --card: 15 23 42; /* Slate-900 */
+  --card-foreground: 248 250 252;
+  --popover: 15 23 42;
+  --popover-foreground: 248 250 252;
   --primary: var(--color-primary);
   --primary-foreground: 255 255 255;
-  --secondary: 51 65 85; /* slate-700 */
-  --secondary-foreground: var(--color-background);
-  --muted: 51 65 85;
-  --muted-foreground: var(--color-muted);
-  --accent: 51 65 85;
-  --accent-foreground: var(--color-background);
+  --secondary: 30 41 59; /* Slate-800 */
+  --secondary-foreground: 248 250 252;
+  --muted: 30 41 59;
+  --muted-foreground: 148 163 184; /* Slate-400 */
+  --accent: 30 41 59;
+  --accent-foreground: 248 250 252;
   --destructive: 220 38 38;
   --destructive-foreground: 255 255 255;
-  --border: 51 65 85;
+  --border: 51 65 85; /* Slate-700 */
   --input: 51 65 85;
   --ring: var(--color-primary);
 }
@@ -63,94 +65,147 @@
   }
   
   body {
-    @apply bg-background text-foreground font-['Inter'];
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+    font-weight: 400;
+    line-height: 1.6;
   }
 
-  /* Custom scrollbar styling */
+  /* Enhanced Typography for Electrical Engineering Domain */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  /* Technical Typography */
+  .font-technical {
+    font-family: 'Space Grotesk', monospace;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+  }
+
+  /* Custom scrollbar styling with electrical theme */
   ::-webkit-scrollbar {
-    @apply w-2;
+    @apply w-3;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-gray-100 dark:bg-gray-800;
+    @apply bg-gray-100 dark:bg-gray-800 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-red-500 rounded-full;
+    @apply bg-gradient-to-b from-red-500 to-red-600 rounded-full hover:from-red-600 hover:to-red-700;
   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-red-600;
-  }
-
-  /* Selection styling */
+  /* Enhanced Selection styling */
   ::selection {
     @apply bg-red-500 text-white;
   }
 
-  /* Focus ring styling */
+  /* Focus ring styling with electrical theme */
   .focus-ring {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   }
 }
 
 @layer components {
-  /* Glass morphism utility */
+  /* Enhanced Glass morphism utility */
   .glass {
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    @apply bg-white/70 dark:bg-gray-800/70 border border-white/20 dark:border-gray-700/20;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    @apply bg-white/60 dark:bg-gray-800/60 border border-white/30 dark:border-gray-700/30;
   }
 
-  /* Hover lift effect */
+  .glass-strong {
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    @apply bg-white/80 dark:bg-gray-800/80 border border-white/40 dark:border-gray-700/40;
+  }
+
+  /* Enhanced hover lift effect */
   .hover-lift {
-    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+    @apply transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl;
   }
 
-  /* Custom button variants */
+  .hover-lift-gentle {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  /* Enhanced button variants */
   .btn-primary {
-    @apply bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105;
+    @apply bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 active:from-red-800 active:to-red-900 text-white font-bold shadow-lg hover:shadow-xl active:shadow-md transition-all duration-300 transform hover:scale-105 active:scale-95;
   }
 
   .btn-secondary {
-    @apply border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-semibold transition-all duration-300 transform hover:scale-105;
+    @apply border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white hover:border-red-700 active:bg-red-700 active:border-red-800 font-bold transition-all duration-300 transform hover:scale-105 active:scale-95;
   }
 
-  /* Card components */
+  /* Enhanced card components */
   .card-hover {
     @apply transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl;
   }
 
-  /* Text gradients */
-  .text-gradient {
-    @apply bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent;
+  .card-interactive {
+    @apply transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl active:scale-95;
   }
 
-  /* Animated backgrounds */
+  /* Text gradients with electrical theme */
+  .text-gradient {
+    @apply bg-gradient-to-r from-red-600 via-red-500 to-red-700 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-secondary {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+  }
+
+  /* Enhanced animated backgrounds */
   .animated-gradient {
-    background: linear-gradient(-45deg, theme('colors.gray.50'), theme('colors.white'), theme('colors.gray.100'), theme('colors.gray.50'));
+    background: linear-gradient(-45deg, theme('colors.gray.50'), theme('colors.white'), theme('colors.slate.50'), theme('colors.gray.50'));
     background-size: 400% 400%;
-    animation: gradient-shift 15s ease infinite;
+    animation: gradient-shift 20s ease infinite;
   }
 
   .dark .animated-gradient {
-    background: linear-gradient(-45deg, theme('colors.gray.900'), theme('colors.gray.800'), theme('colors.gray.900'), theme('colors.gray.700'));
+    background: linear-gradient(-45deg, theme('colors.slate.900'), theme('colors.gray.900'), theme('colors.slate.800'), theme('colors.slate.900'));
     background-size: 400% 400%;
-    animation: gradient-shift 15s ease infinite;
+    animation: gradient-shift 20s ease infinite;
   }
 }
 
 @layer utilities {
-  /* Animation keyframes */
+  /* Enhanced Animation keyframes */
   @keyframes gradient-shift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+  }
+
+  @keyframes gradient-x {
+    0%, 100% { transform: translateX(0%); }
+    50% { transform: translateX(100%); }
+  }
+
+  @keyframes fade-in-up {
+    0% { 
+      opacity: 0; 
+      transform: translateY(30px);
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0);
+    }
   }
 
   @keyframes pulse-red {
@@ -163,21 +218,81 @@
     100% { background-position: 1000px 0; }
   }
 
-  /* Utility classes */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px theme('colors.red.500/50'); }
+    50% { box-shadow: 0 0 20px theme('colors.red.500/80'), 0 0 30px theme('colors.red.400/50'); }
+  }
+
+  /* Enhanced Utility classes */
   .pulse-red {
     animation: pulse-red 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
+  .animate-gradient-x {
+    animation: gradient-x 15s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
   .text-shimmer {
-    background: linear-gradient(90deg, theme('colors.red.600') 0%, theme('colors.red.500') 50%, theme('colors.red.600') 100%);
+    background: linear-gradient(90deg, theme('colors.red.600') 0%, theme('colors.red.400') 50%, theme('colors.red.600') 100%);
     background-size: 1000px 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
     animation: shimmer 3s infinite;
+  }
+
+  /* Spacing utilities for professional layouts */
+  .section-padding {
+    @apply py-16 lg:py-24;
+  }
+
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Professional color utilities */
+  .text-professional {
+    @apply text-slate-700 dark:text-slate-300;
+  }
+
+  .bg-professional {
+    @apply bg-slate-50 dark:bg-slate-800;
+  }
+
+  .border-professional {
+    @apply border-slate-200 dark:border-slate-700;
   }
 
   /* Ensure no center alignment unless explicitly needed */
   .no-center {
     text-align: left;
+  }
+
+  /* Enhanced shadow utilities */
+  .shadow-glow {
+    box-shadow: 0 0 20px theme('colors.red.500/20');
+  }
+
+  .shadow-glow-strong {
+    box-shadow: 0 0 30px theme('colors.red.500/30'), 0 0 60px theme('colors.red.400/10');
   }
 }
