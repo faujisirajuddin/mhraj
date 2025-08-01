@@ -18,6 +18,7 @@ import {
   Menu,
 } from "lucide-react";
 import { menuItems } from "../mock/mock";
+import { useNavigate } from "react-router-dom";
 
 const iconMap = {
   LayoutDashboard,
@@ -35,6 +36,7 @@ const iconMap = {
 };
 
 const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
+    const navigate = useNavigate();
   const [expandedItems, setExpandedItems] = useState({});
   const [isHovered, setIsHovered] = useState(false);
   const [activeItem, setActiveItem] = useState("dashboard");
@@ -50,6 +52,8 @@ const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
     setActiveItem(item.id);
     if (item.hasSubmenu) {
       toggleSubmenu(item.id);
+    } else if (item.path) {
+      navigate(item.path); 
     }
   };
 

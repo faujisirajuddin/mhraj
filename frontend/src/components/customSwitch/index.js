@@ -1,8 +1,7 @@
 import { useState } from "react";
 import ConfirmationModal from "../confirmationModal/index";
-// import { Switch } from "../../../utils/mui-imports";
-export {  Switch } from "@mui/material/Switch";
-import { STATIC_VALUES } from "../../../constant/common";
+import Switch from "@mui/material/Switch";
+import { STATIC_VALUES } from "../../constant/common";
 
 const CustomSwitch = ({
   checked,
@@ -38,19 +37,19 @@ const CustomSwitch = ({
         disabled={disabled}
         sx={{
           "& .MuiSwitch-switchBase.Mui-checked": {
-            color: "FF0000",
+            color: "#FF0000",
           },
           "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
-            backgroundColor: "FF0000" + " !important",
+            backgroundColor: "#FF0000" + " !important",
           },
           "& .MuiSwitch-switchBase.Mui-disabled": {
-            color: "#ccc",
+            color: "#cccccc",
           },
           "& .MuiSwitch-switchBase.Mui-disabled + .MuiSwitch-track": {
-            backgroundColor: "#ccc !important",
+            backgroundColor: "#cccccc !important",
           },
           "& .MuiSwitch-switchBase.Mui-checked.Mui-disabled": {
-            color: "FF0000" + "80 !important",
+            color: "#FF0000" + "80 !important",
           },
         }}
       />

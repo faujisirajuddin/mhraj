@@ -1,18 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import { FaPlus, FaFilter } from "react-icons/fa";
 import { useCallback, useEffect, useState } from "react";
-export { DataGrid } from "@mui/x-data-grid";
+import { DataGrid } from '@mui/x-data-grid';
 import EditIcon from "@mui/icons-material/Edit";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-export { Box } from "@mui/material/Box";
-export {  InputLabel } from "@mui/material/InputLabel";
-export {IconButton } from "@mui/material/IconButton";
-export {  MenuItem } from "@mui/material/MenuItem";
-export {  Select } from "@mui/material/Select";
-export {  Pagination } from "@mui/material/Pagination";
-import "../user-management/user-management.css";
+import Box from "@mui/material/Box";
+import   InputLabel  from "@mui/material/InputLabel";
+import IconButton  from "@mui/material/IconButton";
+import   MenuItem  from "@mui/material/MenuItem";
+import   Select  from "@mui/material/Select";
+import   Pagination  from "@mui/material/Pagination";
+import "./table.css";
 import CustomButton from "../components/customButton/index";
-import { moduleEnumNames, STATIC_VALUES } from "../../constant/common";
+import { moduleEnumNames, STATIC_VALUES } from "../constant/common";
 // import Filter from "./filter/index";
 import CustomSwitch from "../components/customSwitch/index";
 // import { getRoleAPI, updateStatusAPI } from "../../config/api/role";
@@ -20,20 +20,144 @@ import { toast } from "react-toastify";
 import debounce from "lodash/debounce";
 // import { usePermission } from "../../hooks/usePermissions";
 
-const RoleManagement = () => {
+const dummyData = [
+  {
+    id: 1,
+    roleName: "Administrator",
+    description: "Full access to the system",
+    createdDate: "2023-01-15",
+    updatedDate: "2024-04-10",
+    status: true,
+  },
+  {
+    id: 2,
+    roleName: "Editor",
+    description: "Can edit content",
+    createdDate: "2023-03-01",
+    updatedDate: "2024-03-20",
+    status: true,
+  },
+  {
+    id: 3,
+    roleName: "Viewer",
+    description: "Read-only access",
+    createdDate: "2023-05-12",
+    updatedDate: "2024-02-01",
+    status: false,
+  },
+  {
+    id: 4,
+    roleName: "HR Manager",
+    description: "Handles employee-related data",
+    createdDate: "2022-11-30",
+    updatedDate: "2024-01-10",
+    status: true,
+  },
+  {
+    id: 5,
+    roleName: "Support Agent",
+    description: "Manages support tickets",
+    createdDate: "2023-06-22",
+    updatedDate: "2024-05-15",
+    status: false,
+  },
+    {
+    id: 6,
+    roleName: "Administrator",
+    description: "Full access to the system",
+    createdDate: "2023-01-15",
+    updatedDate: "2024-04-10",
+    status: true,
+  },
+  {
+    id: 7,
+    roleName: "Editor",
+    description: "Can edit content",
+    createdDate: "2023-03-01",
+    updatedDate: "2024-03-20",
+    status: true,
+  },
+  {
+    id: 8,
+    roleName: "Viewer",
+    description: "Read-only access",
+    createdDate: "2023-05-12",
+    updatedDate: "2024-02-01",
+    status: false,
+  },
+  {
+    id: 9,
+    roleName: "HR Manager",
+    description: "Handles employee-related data",
+    createdDate: "2022-11-30",
+    updatedDate: "2024-01-10",
+    status: true,
+  },
+  {
+    id: 10,
+    roleName: "Support Agent",
+    description: "Manages support tickets",
+    createdDate: "2023-06-22",
+    updatedDate: "2024-05-15",
+    status: false,
+  },
+  //   {
+  //   id: 11,
+  //   roleName: "Administrator",
+  //   description: "Full access to the system",
+  //   createdDate: "2023-01-15",
+  //   updatedDate: "2024-04-10",
+  //   status: true,
+  // },
+  // {
+  //   id: 12,
+  //   roleName: "Editor",
+  //   description: "Can edit content",
+  //   createdDate: "2023-03-01",
+  //   updatedDate: "2024-03-20",
+  //   status: true,
+  // },
+  // {
+  //   id: 13,
+  //   roleName: "Viewer",
+  //   description: "Read-only access",
+  //   createdDate: "2023-05-12",
+  //   updatedDate: "2024-02-01",
+  //   status: false,
+  // },
+  // {
+  //   id: 14,
+  //   roleName: "HR Manager",
+  //   description: "Handles employee-related data",
+  //   createdDate: "2022-11-30",
+  //   updatedDate: "2024-01-10",
+  //   status: true,
+  // },
+  // {
+  //   id: 15,
+  //   roleName: "Support Agent",
+  //   description: "Manages support tickets",
+  //   createdDate: "2023-06-22",
+  //   updatedDate: "2024-05-15",
+  //   status: false,
+  // },
+];
+import "./table.css";
+
+const RoleTable = () => {
   const navigate = useNavigate();
   // const { hasAdd, hasEdit, hasView, hasDelete } = usePermission(
   //   moduleEnumNames?.role_management
   // );
   const { COMMON, ROLE_MANAGEMENT } = STATIC_VALUES;
-  const [allRoles, setAllRoles] = useState([]);
+  const [allRoles, setAllRoles] = useState(dummyData);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [searchValue, setSearchValue] = useState("");
   const [totalCount, setTotalCount] = useState(0);
   const [loading, setLoading] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<"Status" | null>(
+  const [selectedCategory, setSelectedCategory] = useState(
     "Status"
   );
 
@@ -235,22 +359,13 @@ const RoleManagement = () => {
     <>
       <div className="grid grid-cols-12 gap-x-6">
         <div className="xl:col-span-12 col-span-12">
-          <div className="box mt-10">
-            <div className="box-header justify-between">
+          <div className="box" style={{border:"1px solid red",borderRadius:"5px" ,backgroundColor:"#ffffff"}}>
+            <div className="box-header flex justify-between px-2.5 py-2.5" >
               <div className="box-title">
                 {ROLE_MANAGEMENT.ROLE_MANAGEMENT_TITLE}
               </div>
               <div className="flex flex-wrap gap-2 top-right-part-main">
-                {/* {hasAdd ? ( */}
-                  <CustomButton
-                    backgroundColor={"#EF4444"}
-                    className="add-new-btn"
-                    onClick={handleAdd}
-                  >
-                    <FaPlus className="mr-2" />
-                    {COMMON.BUTTONS.ADD_NEW_ROLE}
-                  </CustomButton>
-                {/* ) : null} */}
+                
                 <input
                   className="ti-form-control form-control-sm"
                   type="text"
@@ -258,7 +373,18 @@ const RoleManagement = () => {
                   value={searchValue}
                   onChange={handleSearchChange}
                   aria-label=".form-control-sm example"
+                  style={{border:"1px solid #ccc",borderRadius:"5px",paddingLeft:"10px"}}
                 />
+                {/* {hasAdd ? ( */}
+                  <CustomButton
+                    backgroundColor={"#EF4444"}
+                    className="add-new-btn"
+                    onClick={handleAdd}
+                  >
+                    <FaPlus className="mr-2" />
+                    {COMMON.BUTTONS.ADD}
+                  </CustomButton>
+                {/* ) : null} */}
                 <CustomButton
                   backgroundColor={"#EF4444"}
                   className="add-btn"
@@ -312,16 +438,6 @@ const RoleManagement = () => {
                 />
               </div>
             </Box>
-            {/* <Filter
-              open={filterOpen}
-              setOpen={setFilterOpen}
-              selectedCategory={selectedCategory}
-              setSelectedCategory={setSelectedCategory}
-              selectedOptions={selectedOptions}
-              setSelectedOptions={setSelectedOptions}
-              handleApplyFilter={() => fetchAllRoles(searchValue, 1, pageSize)}
-              handleResetFilter={handleResetFilter}
-            /> */}
           </div>
         </div>
       </div>
@@ -329,4 +445,4 @@ const RoleManagement = () => {
   );
 };
 
-export default RoleManagement;
+export default RoleTable;

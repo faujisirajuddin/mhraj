@@ -71,9 +71,8 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       
-      <main className="">
+      <main className="px-4 py-4" style={{borderRadius:"5px", backgroundColor:"#ffffff"}}>
         <div className="w-full mx-auto">
           {/* Dashboard Header */}
           <div className="mb-8">
@@ -310,9 +309,7 @@ const Dashboard = () => {
           )}
         </div>
       </main>
-      
-    </div>
-  );
+        );
 };
 
 export default Dashboard;

@@ -1,0 +1,123 @@
+.dropdown {
+  background-color: rgb(56, 63, 81);
+}
+.secondary-btn,
+nav.navigation ul.ti-pagination li.page-item a.page-link.active,
+.pagination-style-4 .ti-pagination li .page-link.active {
+  background-color: #ef4444 !important;
+}
+.add-btn {
+  border-radius: 0px !important;
+  font-size: 12px !important;
+  min-width: 70px !important;
+  font-weight: normal !important;
+}
+.add-new-btn {
+  border-radius: 0px !important;
+  font-size: 12px !important;
+  min-width: 70px !important;
+  font-weight: normal !important;
+}
+.mr-2 {
+  padding-left: 2px;
+}
+.add-btn svg {
+  height: 8px;
+  width: 8px;
+  margin-right: 5px;
+}
+
+table * {
+  font-size: 15px !important;
+}
+
+.\!text-primary,
+.ti-pagination li .page-link:hover {
+  color: #ef4444 !important;
+}
+.box-header .box-title {
+  font-size: 20px;
+  color: #ef4444;
+  font-weight: 600;
+}
+.row-per-page-top {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: 10px;
+}
+.pagination-part nav ul .Mui-selected {
+  background-color: #ef4444 !important;
+}
+.row-per-page-top label {
+  color: #ef4444;
+  font-size: 14px;
+}
+
+.table-main .bold-header * {
+  font-weight: bold !important;
+}
+.table-main {
+  margin: 0px 10px;
+}
+
+.top-right-part-main {
+  align-items: center;
+}
+.top-right-part-main input {
+  height: 40px;
+}
+.total-count {
+  font-size: 16px;
+  color: #ef4444;
+  font-weight: 700;
+}
+.sticky-column {
+  position: sticky !important;
+  right: 0;
+  background: white;
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+.MuiDataGrid-columnHeaders {
+  background: white; /* Ensure header background remains white */
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+.MuiDataGrid-columnHeaders * {
+  font-weight: bold !important;
+}
+
+/* Fix MUI Select focus issues */
+.MuiSelect-root:focus,
+.MuiSelect-select:focus,
+.MuiOutlinedInput-input:focus,
+.MuiOutlinedInput-root:focus-within,
+.MuiOutlinedInput-root.Mui-focused {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Fix fieldset positioning and border issues */
+.MuiOutlinedInput-notchedOutline,
+.MuiOutlinedInput-root fieldset {
+  border: 1px solid #ddd !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  pointer-events: none !important;
+  border-radius: 4px !important;
+}
+
+.MuiOutlinedInput-notchedOutline legend {
+  display: none !important;
+}
+
+/* Hide DataGrid selected row count */
+.MuiDataGrid-selectedRowCount {
+  display: none !important;
+}
