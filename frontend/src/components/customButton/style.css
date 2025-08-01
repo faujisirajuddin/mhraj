@@ -1,0 +1,87 @@
+/* CustomButton.css */
+
+.custom-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s;
+  min-width: 115px;
+  height: 40px;
+  width: auto;
+}
+
+.custom-button.disabled,
+.custom-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.custom-button:hover:not(.disabled),
+.custom-button:focus:not(.disabled) {
+  opacity: 0.8;
+}
+
+@media (max-width: 1024px) {
+  .custom-button {
+    height: 38px;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-button {
+    height: 35px;
+    width: 100%;
+    min-width: 0;
+    padding: 0.4rem 0.8rem;
+    font-size: 12px;
+    border-radius: 6px;
+  }
+}
+
+.loading-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.loading-dots span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: currentColor;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.loading-dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}

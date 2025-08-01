@@ -1,0 +1,135 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.email-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  width: 400px;
+  border-radius: 5px;
+}
+
+.email-logo {
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+.back-arrow {
+  font-size: 16px;
+  line-height: 1;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.instruction-text {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.email-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.email-error {
+  color: red;
+  font-size: 12px;
+  text-align: start;
+}
+
+.email-button {
+  padding: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  transition: background-color 0.3s ease;
+}
+
+.email-button:hover:not(:disabled) {
+  background-color: #cc0000;
+}
+
+.email-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #cc000080;
+}
+
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.header {
+  color: #8a8a8a;
+}
