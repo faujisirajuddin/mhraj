@@ -5,14 +5,14 @@ export const menuItems = [
     id: 'dashboard',
     label: 'Dashboard',
     icon: 'LayoutDashboard',
-    path: '/dashboard',
+    path: '/admin/dashboard',
     active: true
   },
   {
     id: 'role-management',
     label: 'Role Management',
     icon: 'ShieldCheck',
-    path: '/role-management'
+    path: '/admin/role'
   },
   {
     id: 'faq-management',

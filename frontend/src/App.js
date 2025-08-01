@@ -15,7 +15,8 @@ import { ThemeProvider } from "./context/ThemeContext";
 import EmailVerification from "./admin/auth/emailVerification";
 import OtpVerification from "./admin/auth/otpVerification";
 import ResetPassword from "./admin/auth/forgetPassword";
-import DashboardLayout from "./pages/layout/DashboardLayout";
+import RoleManagement from "./pages/RoleManagement";
+import DashboardPage from "./admin/dashboard";
 
 const muiTheme = createTheme({
   palette: {
@@ -39,7 +40,8 @@ function App() {
               <Route path="/admin/emailVerification" element={<EmailVerification />} />
                             <Route path="/admin/otpVerification" element={<OtpVerification />} />
 <Route path="/admin/forgetPassword" element={<ResetPassword />} />
-<Route path="/admin/dashboard" element={<DashboardLayout />} />
+<Route path="/admin/dashboard" element={<DashboardPage />} />
+<Route path="/admin/role" element={<RoleManagement />} />
               <Route path="/blog" element={<Blog />} />
             </Routes>
           </BrowserRouter>
