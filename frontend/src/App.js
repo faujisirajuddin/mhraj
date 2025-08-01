@@ -5,28 +5,48 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./admin/dashboard/Dashboard";
 import Blog from "./pages/Blog";
-import { ThemeProvider } from "./context/ThemeContext";
+import Login from "./admin/auth/login/login";
 import { Toaster } from "./components/ui/toaster";
+import { ThemeProvider as MUIThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "./context/ThemeContext";
+import EmailVerification from "./admin/auth/emailVerification";
+import OtpVerification from "./admin/auth/otpVerification";
+import ResetPassword from "./admin/auth/forgetPassword";
+import DashboardLayout from "./pages/layout/DashboardLayout";
+
+const muiTheme = createTheme({
+  palette: {
+    mode: 'light',
+  },
+});
 
 function App() {
   return (
-    <ThemeProvider>
-      <div className="App">
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/blog" element={<Blog />} />
-          </Routes>
-        </BrowserRouter>
-        <Toaster />
-      </div>
-    </ThemeProvider>
+    <MUIThemeProvider theme={muiTheme}>
+      <ThemeProvider>
+        <CssBaseline />
+        <div className="App">
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/admin/login" element={<Login />} />
+              <Route path="/admin/emailVerification" element={<EmailVerification />} />
+                            <Route path="/admin/otpVerification" element={<OtpVerification />} />
+<Route path="/admin/forgetPassword" element={<ResetPassword />} />
+<Route path="/admin/dashboard" element={<DashboardLayout />} />
+              <Route path="/blog" element={<Blog />} />
+            </Routes>
+          </BrowserRouter>
+          <Toaster />
+        </div>
+      </ThemeProvider>
+    </MUIThemeProvider>
   );
 }
 

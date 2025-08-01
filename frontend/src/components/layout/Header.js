@@ -14,7 +14,6 @@ const Header = () => {
     { path: '/about', label: 'About' },
     { path: '/services', label: 'Services' },
     { path: '/contact', label: 'Contact' },
-    { path: '/dashboard', label: 'Dashboard' },
     { path: '/blog', label: 'Blog' }
   ];
 
@@ -40,7 +39,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -54,7 +53,57 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
-          </nav>
+          </nav> */}
+
+          {/* <nav className="hidden md:flex items-center w-full relative">
+  <div className="flex items-center space-x-8 w-full">
+    {navItems.map((item) => (
+      <Link
+        key={item.path}
+        to={item.path}
+        className={`text-sm font-medium transition-all duration-300 hover:text-red-600 dark:hover:text-red-400 ${
+          isActive(item.path)
+            ? 'text-red-600 dark:text-red-400'
+            : 'text-gray-700 dark:text-gray-300'
+        }`}
+      >
+        {item.label}
+      </Link>
+    ))}
+  </div>
+
+  <Link
+    to="/dashboard"
+    className="ml-auto absolute right-0 top-1/2 -translate-y-1/2 w-24 h-10 opacity-0 cursor-pointer z-50"
+    title="Go to Dashboard"
+  >
+  </Link>
+</nav> */}
+
+ <nav className="hidden md:flex items-center absolute left-1/2 -translate-x-1/2 space-x-8">
+        {navItems.map((item) => (
+          <Link
+            key={item.path}
+            to={item.path}
+            className={`text-sm font-medium transition-all duration-300 hover:text-red-600 dark:hover:text-red-400 ${
+              isActive(item.path)
+                ? 'text-red-600 dark:text-red-400'
+                : 'text-gray-700 dark:text-gray-300'
+            }`}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </nav>
+
+      {/* Hidden dashboard link – Jaadoo click */}
+      <Link
+        to="/admin/login"
+        className="absolute right-4 top-1/2 -translate-y-1/2 w-24 h-10 opacity-0 cursor-pointer z-50"
+        title="Go to Dashboard"
+      >
+        {/* Invisible */}
+      </Link>
 
           {/* Theme Toggle & Mobile Menu */}
           <div className="flex items-center space-x-4">

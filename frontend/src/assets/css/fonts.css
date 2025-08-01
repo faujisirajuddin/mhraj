@@ -1,0 +1,23 @@
+/* PP Mori Font Family */
+@font-face {
+  font-family: "PP Mori";
+  src: url("../fonts/PPMori-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Global font application */
+.pp-mori,
+.pp-mori * {
+  font-family: "PP Mori", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* Auth pages specific styling */
+.auth-page {
+  font-family: "PP Mori", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+.auth-page * {
+  font-family: inherit !important;
+} 

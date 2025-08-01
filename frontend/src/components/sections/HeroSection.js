@@ -33,7 +33,7 @@ const HeroSection = () => {
                 <CheckCircle className="h-4 w-4 mr-2 animate-pulse" />
                 Professional Electrical Services
               </div>
-              
+
               <h1 className="text-5xl lg:text-7xl font-black text-gray-900 dark:text-white leading-tight font-['Space_Grotesk'] tracking-tight">
                 Your Trusted
                 <span className="block text-gradient bg-gradient-to-r from-red-600 via-red-500 to-red-700 bg-clip-text text-transparent animate-gradient-x"> 

@@ -1,0 +1,212 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.otp-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  width: 400px !important;
+  border-radius: 5px;
+}
+
+.otp-logo {
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+.back-arrow {
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 100;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.instruction-text {
+  font-size: 13px;
+  color: black !important;
+  font-weight: 800;
+}
+
+.otp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.otp-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.otp-error {
+  color: red;
+  font-size: 12px;
+  text-align: start !important;
+}
+
+.resend-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  gap: 5px;
+  margin-top: -5px; /* Adjust if you want tighter spacing */
+}
+
+.resend-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+}
+
+.resend-button.disabled {
+  color: #6c757d;
+  cursor: not-allowed;
+  text-decoration: none;
+  opacity: 0.6;
+}
+
+.resend-button:hover:not(.disabled) {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+.otp-button {
+  padding: 10px;
+  background-color: red; /* Red to match screenshot button */
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.otp-button:hover {
+  background-color: #cc0000;
+}
+
+.otp-button:disabled {
+  background-color: #cc000080;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.otp-button.loading {
+  background-color: #cc000080;
+  cursor: not-allowed;
+}
+
+.email-button {
+  padding: 10px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.email-button:hover {
+  background-color: #cc000080;
+}
+
+.spantext {
+  margin: 10px auto;
+  font-size: 13px;
+  color: black;
+  font-weight: 800;
+}
+
+.resend-container-text {
+  font-size: 13px;
+  color: black;
+  font-weight: bold;
+}
+
+.otp-label {
+  text-align: start;
+  font-size: 13px;
+  color: black;
+  font-weight: 800;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  color: #8a8a8a;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 30px;
+}
+
+/* Add these to your existing CSS file */
+.otp-input-wrapper {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.otp-input-wrapper input {
+  width: 47px !important;
+  height: 47px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.otp-input-wrapper .otp-container {
+  flex-direction: row !important;
+  padding-left: 0px;
+}
